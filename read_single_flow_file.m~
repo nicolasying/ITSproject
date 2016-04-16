@@ -1,0 +1,5 @@
+function info_matrix = read_single_flow_file (file_name_flow, file_name_occ, file_)
+[Mon1, Day1, Year1, H1, M1, Lf1, Lf2, Lf3, Lf4, Flow, Lpt, Ocup] = textread(file_name,'%n/%n/%n %n:%n %n %n %n %n %n %n %n');
+info_matrix = [Mon1, Day1, Year1, H1, M1, Lf1, Lf2, Lf3, Lf4, Flow, Lpt, Ocup];
+
+[Mon2, Day2, Year2, H2, M2, Lf2, Lf2, Lf3, Lf4, Flow, Lpt, Ocup] = textread(file_name,'%n/%n/%n %n:%n %n %n %n %n %n %n %n');
