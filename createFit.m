@@ -24,12 +24,12 @@ ft = fittype( 'poly2' );
 [fitresult, gof] = fit( xData, yData, ft );
 
 % Plot fit with data.
-figure( 'Name', 'untitled fit 1' );
+figure( 'Name', 'Flow - Speed' );
 h = plot( fitresult, xData, yData );
-legend( h, 'ans vs. ans', 'untitled fit 1', 'Location', 'NorthEast' );
+legend( h, 'f vs. s', 'Flow - Speed', 'Location', 'NorthEast' );
 % Label axes
-xlabel ans
-ylabel ans
+xlabel Flow
+ylabel Speed
 grid on
 
 
