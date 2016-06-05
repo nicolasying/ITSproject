@@ -23,7 +23,7 @@ length = size(tmp,1);
 %     length = length - 1;
 % end;
 
-[xData, yData] = prepareCurveData( tmp(:,4), tmp(:,2) );
+[xData, yData] = prepareCurveData( tmp(:,3), tmp(:,2) );
 
 % Set up fittype and options.
 ft = fittype( 'poly2' );

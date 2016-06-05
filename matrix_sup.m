@@ -1,7 +1,7 @@
 function newmatrix = matrix_sup( matrix )
 a=size(matrix,1);
 while (a >= 1)
-    if (matrix(a,4) < 60)
+    if (matrix(a,3) < 60)
         matrix(a,:)=[];
         %a = a-1;
     end

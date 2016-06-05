@@ -11,7 +11,7 @@ lines = length(info_matrix(:,1));
 jam_matrix = zeros(lines,1);
 
 for i = 1:n
-    if (info_matrix(i,2) <= flow_max && info_matrix(i,4) <= speed_max)
+    if (info_matrix(i,2) <= flow_max && info_matrix(i,3) <= speed_max)
         jam_matrix(i, 1) = 1;
     end;
 end;

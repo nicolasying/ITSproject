@@ -1,7 +1,6 @@
 % Single Segment Actual threshold value
-function [speed_max, flow_max] = update_maximal(file_name_flow, file_name_occ, file_name_speed)
+function [speed_max, flow_max] = update_maximal(info_matrix)
 
-info_matrix = read_file(file_name_flow, file_name_occ, file_name_speed);
 
 % filter should be applied to the info_matrix
 
