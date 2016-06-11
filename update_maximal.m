@@ -1,19 +1,22 @@
 % Single Segment Actual threshold value
-function [speed_max, flow_max] = update_maximal(info_matrix)
+function [Occ_critical] = update_maximal(Occ_Matrix, Flow_Matrix)
 
 
 % filter should be applied to the info_matrix
 
-curve_func_struct = createFit(info_matrix);
-%curve_func = @(x)curve_func_struct.p1*x^2+curve_func_struct.p2*x+curve_func_struct.p3;
-% a function of variable flow, value speed is generated under quadratic
-% form.
+[xData, yData] = prepareCurveData( Occ_Matrix, Flow_Matrix );
 
-speed_max = - curve_func_struct.p2 / (curve_func_struct.p1 * 2);
-flow_max = - (curve_func_struct.p2) ^ 2 / (curve_func_struct.p1 * 4) + curve_func_struct.p3;
+% Set up fittype and options.
+ft = fittype( 'poly3' );
 
-disp('Updated flow_max: ');
-disp(flow_max);
+% Fit model to data.
+[curve_func_struct] = fit( xData, yData, ft );
+
+
+Occ_critical = (-curve_func_struct.p2 - sqrt((curve_func_struct.p2)^2-3*curve_func_struct.p1*curve_func_struct.p3))/(3*curve_func_struct.p1);
+
+disp('Updated Critical Occupancy: ');
+disp(Occ_critical);
 %disp(speed_max);
 
 end

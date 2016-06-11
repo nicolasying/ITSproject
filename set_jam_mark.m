@@ -1,4 +1,4 @@
-function [ jam_matrix ] = set_jam_mark ( info_matrix, speed_max, flow_max )
+function [ jam_matrix ] = set_jam_mark ( occ_matrix, speed_matrix , speed_max, Occ_critical )
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -7,14 +7,22 @@ function [ jam_matrix ] = set_jam_mark ( info_matrix, speed_max, flow_max )
 % stands for no.
 
 
-lines = length(info_matrix(:,1));
+lines = length(occ_matrix);
 jam_matrix = zeros(lines,1);
 
-for i = 1:n
-    if (info_matrix(i,2) <= flow_max && info_matrix(i,3) <= speed_max)
+for i = 1:lines
+    if (occ_matrix(i) >= Occ_critical && speed_matrix(i) <= speed_max)
         jam_matrix(i, 1) = 1;
     end;
 end;
 
+figure('Name', 'Jam Status');
+h = plot( 1:lines, jam_matrix );
+legend( h, 'Jam', 'Location', 'NorthEast' );
+% Label axes
+xlabel Time
+ylabel 'Jam Flag'
+grid off
+ylim([0 1.3])
 end
 
